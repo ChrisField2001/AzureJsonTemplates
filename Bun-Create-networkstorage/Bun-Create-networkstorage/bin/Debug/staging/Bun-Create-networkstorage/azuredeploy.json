@@ -1,0 +1,260 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "outputs": {
+  },
+  "parameters": {
+    "vNetName": {
+      "type": "string",
+      "defaultValue": "networkone",
+      "metadata": {
+        "description": "Arbitrary name for the Azure Virtual Network"
+      }
+    },
+    "vNetPrefix": {
+      "type": "string",
+      "defaultValue": "10.0.0.0/16",
+      "metadata": {
+        "description": "CIDR block for VM subnet, subset of vNetPrefix address space"
+      }
+    },
+    "subnet1Name": {
+      "type": "string",
+      "defaultValue": "Subnetone",
+      "metadata": {
+        "description": "Arbitrary name for the Azure Subnet"
+      }
+    },
+    "subnet1Prefix": {
+      "type": "string",
+      "defaultValue": "10.0.1.0/24",
+      "metadata": {
+        "description": "CIDR block for VM subnet, subset of vNetPrefix address space"
+      }
+    },
+    "subnet2Name": {
+      "type": "string",
+      "defaultValue": "subnettwo",
+      "metadata": {
+        "description": "Arbitrary name for the Azure Subnet"
+      }
+    },
+    "subnet2Prefix": {
+      "type": "string",
+      "defaultValue": "10.0.2.0/24",
+      "metadata": {
+        "description": "CIDR block for VM subnet, subset of vNetPrefix address space"
+      }
+    },
+    "subnet3Name": {
+      "type": "string",
+      "defaultValue": "subnetthree",
+      "metadata": {
+        "description": "Arbitrary name for the Azure Subnet"
+      }
+    },
+    "subnet3Prefix": {
+      "type": "string",
+      "defaultValue": "10.0.3.0/24",
+      "metadata": {
+        "description": "CIDR block for VM subnet, subset of vNetPrefix address space"
+      }
+    },
+    "subnet4Name": {
+      "type": "string",
+      "defaultValue": "subnetfour",
+      "metadata": {
+        "description": "Arbitrary name for the Azure Subnet"
+      }
+    },
+    "subnet4Prefix": {
+      "type": "string",
+      "defaultValue": "10.0.4.0/24",
+      "metadata": {
+        "description": "CIDR block for VM subnet, subset of vNetPrefix address space"
+      }
+    },
+    "subnet5Name": {
+      "type": "string",
+      "defaultValue": "subnetfive",
+      "metadata": {
+        "description": "Arbitrary name for the Azure Subnet"
+      }
+    },
+    "subnet5Prefix": {
+      "type": "string",
+      "defaultValue": "10.0.5.0/24",
+      "metadata": {
+        "description": "CIDR block for VM subnet, subset of vNetPrefix address space"
+      }
+    },
+    "subnet6Name": {
+      "type": "string",
+      "defaultValue": "subnetsix",
+      "metadata": {
+        "description": "Arbitrary name for the Azure Subnet"
+      }
+    },
+    "subnet6Prefix": {
+      "type": "string",
+      "defaultValue": "10.0.6.0/24",
+      "metadata": {
+        "description": "CIDR block for VM subnet, subset of vNetPrefix address space"
+      }
+    },
+    "subnet7Name": {
+      "type": "string",
+      "defaultValue": "subnetseven",
+      "metadata": {
+        "description": "Arbitrary name for the Azure Subnet"
+      }
+    },
+    "subnet7Prefix": {
+      "type": "string",
+      "defaultValue": "10.0.7.0/24",
+      "metadata": {
+        "description": "CIDR block for VM subnet, subset of vNetPrefix address space"
+      }
+    },
+    "subnet8Name": {
+      "type": "string",
+      "defaultValue": "subneteight",
+      "metadata": {
+        "description": "Arbitrary name for the Azure Subnet"
+      }
+    },
+    "subnet8Prefix": {
+      "type": "string",
+      "defaultValue": "10.0.8.0/24",
+      "metadata": {
+        "description": "CIDR block for VM subnet, subset of vNetPrefix address space"
+      }
+    },
+    "stdstorageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS"
+        ]
+    },
+    "stdstorageAccountName": {
+      "type": "string",
+      "defaultValue": "BunstdStorAcc000",
+      "metadata": {
+        "description": "Arbitrary name for the Azure Storage"
+      }
+    },
+    "premstorageAccountType": {
+      "type": "string",
+      "defaultValue": "Premium_LRS"
+    },
+    "premstorageAccountName": {
+      "type": "string",
+      "defaultValue": "BunPremStorAcc000",
+      "metadata": {
+        "description": "Arbitrary name for Azure Storage"
+      }
+    }
+  },
+  "resources": [
+    {
+      "name": "[parameters('vNetName')]",
+      "type": "Microsoft.Network/virtualNetworks",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "VirtualNetwork"
+      },
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('vNetPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[parameters('subnet1Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet1Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet2Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet2Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet3Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet3Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet4Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet4Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet5Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet5Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet6Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet6Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet7Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet7Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet8Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet8Prefix')]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "[parameters('stdstorageAccountName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+
+      "tags": {
+        "displayName": "storageAccount"
+      },
+      "properties": {
+        "accountType": "[parameters('stdstorageAccountType')]"
+      }
+    },
+    {
+      "name": "[parameters('premstorageAccountName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+
+      "tags": {
+        "displayName": "storageAccount"
+      },
+      "properties": {
+        "accountType": "[parameters('premstorageAccountType')]"
+      }
+    }
+  ],
+  "variables": {
+
+  }
+}
